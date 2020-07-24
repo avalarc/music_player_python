@@ -33,13 +33,11 @@ class ReproductorMusical:
         contenedorBotones = LabelFrame(self.container,text="Control Panel",font=("fonatica",15,"bold"),bg="grey",fg="white",bd=5,relief=FLAT)
         contenedorBotones.place(x=600,y=500,width=400,height=100)
         # Boton de play
-        playBtn = Button(contenedorBotones,text="Play",command=self.ReproducirCancion,width=6,height=1,font=("fonatica",12),fg="black",bg="grey").grid(row=0,column=0,padx=10,pady=5)
+        playBtn = Button(contenedorBotones,text=">",command=self.ReproducirCancion,width=6,height=1,font=("fonatica",12),fg="black",bg="grey").grid(row=0,column=0,padx=10,pady=5)
         # Boton de Pause
-        pausaOnBtn = Button(contenedorBotones,text="Pause On",command=self.pausarCancion,width=8,height=1,font=("fonatica",12),fg="black",bg="grey").grid(row=0,column=1,padx=10,pady=5)
-        # Boton de UnPause
-        pausaOffBtn = Button(contenedorBotones,text="Pause Off",command=self.unpause,width=10,height=1,font=("fonatica",12),fg="black",bg="grey").grid(row=0,column=2,padx=10,pady=5)
+        pausaOnBtn = Button(contenedorBotones,text="||",command=self.pausarCancion,width=8,height=1,font=("fonatica",12),fg="black",bg="grey").grid(row=0,column=1,padx=10,pady=5)
         # Boton de Stop
-        stopBtn = Button(contenedorBotones,text="Stop",command=self.detenerCancion,width=6,height=1,font=("fonatica",12),fg="black",bg="grey").grid(row=0,column=3,padx=10,pady=5)
+        stopBtn = Button(contenedorBotones,text="[]",command=self.detenerCancion,width=6,height=1,font=("fonatica",12),fg="black",bg="grey").grid(row=0,column=2,padx=10,pady=5)
         
         # PLaylist
         contenedorCanciones = LabelFrame(self.container,text="Playlist",font=("fonatica",15,"bold"),bg="black",fg="white",bd=5,relief=FLAT)
@@ -62,26 +60,36 @@ class ReproductorMusical:
         
     # Definiendo las funciones para la ejecucion de las canciones
     def ReproducirCancion(self):
-        # Displaying Selected Song title
+        # Mostrando el titulo de la canción
         self.cancion.set(self.playlist.get(ACTIVE))
-        # Displaying Status
-        self.estado.set("-Playing")
-        # Loading Selected Song
-        pygame.mixer.music.load(self.playlist.get(ACTIVE))
-        # Playing Selected Song
-        pygame.mixer.music.play()
+        print(self.estado.get())
+        if self.estado.get() == "-Paused":
+            self.desPausar()
+        else:    
+            # Mostrando el estado de la ejecucion
+            self.estado.set("-Playing")
+            # Cargando la cancion seleccionada
+            pygame.mixer.music.load(self.playlist.get(ACTIVE))
+            # Ejecutando la cancion seleccionada
+            pygame.mixer.music.play()
     
     def pausarCancion(self):
-        # Displaying Status
+        # Mostrando el estado de la ejecucion
         self.estado.set("-Paused")
-        # Paused Song
+        # Pausando la cancion
         pygame.mixer.music.pause()
     
     def detenerCancion(self):
-        # Displaying Status
+        # Mostrando el estado de la ejecucion
         self.estado.set("-Stopped")
-        # Stopped Song
+        # Deteniendo cancion
         pygame.mixer.music.stop()
+    
+    def desPausar(self):
+        # Mostrando el estado de la ejecucion
+        self.estado.set("-Playing")
+        # Ejecutando cancion despues de pausada
+        pygame.mixer.music.unpause()
 
        
         
