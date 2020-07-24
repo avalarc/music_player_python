@@ -24,7 +24,7 @@ class ReproductorMusical:
         
 # Creating TK Container
 container = Tk()
-# Passing Root to MusicPlayer Class
+# Passing container to MusicPlayer Class
 ReproductorMusical(container)
-# Root Window Looping
+# container Window Looping
 container.mainloop()
