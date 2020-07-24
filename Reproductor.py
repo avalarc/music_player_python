@@ -39,7 +39,7 @@ class ReproductorMusical:
         # Boton de UnPause
         pausaOffBtn = Button(contenedorBotones,text="Pause Off",command=self.unpause,width=10,height=1,font=("fonatica",12),fg="black",bg="grey").grid(row=0,column=2,padx=10,pady=5)
         # Boton de Stop
-        stopBtn = Button(contenedorBotones,text="Stop",command=self.stop,width=6,height=1,font=("fonatica",12),fg="black",bg="grey").grid(row=0,column=3,padx=10,pady=5)
+        stopBtn = Button(contenedorBotones,text="Stop",command=self.detenerCancion,width=6,height=1,font=("fonatica",12),fg="black",bg="grey").grid(row=0,column=3,padx=10,pady=5)
         
         # PLaylist
         contenedorCanciones = LabelFrame(self.container,text="Playlist",font=("fonatica",15,"bold"),bg="black",fg="white",bd=5,relief=FLAT)
@@ -76,6 +76,12 @@ class ReproductorMusical:
         self.estado.set("-Paused")
         # Paused Song
         pygame.mixer.music.pause()
+    
+    def detenerCancion(self):
+        # Displaying Status
+        self.estado.set("-Stopped")
+        # Stopped Song
+        pygame.mixer.music.stop()
 
        
         
