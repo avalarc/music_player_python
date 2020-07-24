@@ -35,7 +35,7 @@ class ReproductorMusical:
         # Boton de play
         playBtn = Button(contenedorBotones,text="Play",command=self.ReproducirCancion,width=6,height=1,font=("fonatica",12),fg="black",bg="grey").grid(row=0,column=0,padx=10,pady=5)
         # Boton de Pause
-        pausaOnBtn = Button(contenedorBotones,text="Pause On",command=self.pause,width=8,height=1,font=("fonatica",12),fg="black",bg="grey").grid(row=0,column=1,padx=10,pady=5)
+        pausaOnBtn = Button(contenedorBotones,text="Pause On",command=self.pausarCancion,width=8,height=1,font=("fonatica",12),fg="black",bg="grey").grid(row=0,column=1,padx=10,pady=5)
         # Boton de UnPause
         pausaOffBtn = Button(contenedorBotones,text="Pause Off",command=self.unpause,width=10,height=1,font=("fonatica",12),fg="black",bg="grey").grid(row=0,column=2,padx=10,pady=5)
         # Boton de Stop
@@ -70,6 +70,13 @@ class ReproductorMusical:
         pygame.mixer.music.load(self.playlist.get(ACTIVE))
         # Playing Selected Song
         pygame.mixer.music.play()
+    
+    def pausarCancion(self):
+        # Displaying Status
+        self.estado.set("-Paused")
+        # Paused Song
+        pygame.mixer.music.pause()
+
        
         
 # Creating TK Container
