@@ -17,9 +17,13 @@ Ejecuta la aplicación en una terminal diferente,
 
 $ python Reproductor.py
 
-Aqui hay algunos pantallazos
+Aqui te muestro algunos pantallazos
 
 ![Image of MusicPlayer](https://github.com/avalarc/music_player_python/blob/master/Reproductor%20musica%20python.png)
+
+Simplemente selecciona la carpeta de tu musica
+
+Y oprime el botón de play para escucharla.
 
 
 
