@@ -22,7 +22,6 @@ class ReproductorMusical:
         pygame.mixer.init()
         #Formatos aceptados
         self.aceptados = ['mp3','wav']
-        
         self.estado = StringVar()
         self.cancion = StringVar()
 
@@ -67,6 +66,15 @@ class ReproductorMusical:
         # Boton de Stop
         stopBtn = Button(contenedorBotones,text="[]",command=self.detenerCancion,width=6,height=1,font=("fonatica",12),fg="black",bg="grey").grid(row=0,column=2,padx=10,pady=5)
         
+        #Definiendo carpeta inicial
+        self.directorio.set("Canciones")
+        os.chdir(r'Canciones')
+        canciones = os.listdir()
+        # Insertando canciones en el playlist
+        for track in canciones:
+            if track.split('.')[-1] in self.aceptados:
+                self.listaCanciones.insert(END,track)  
+
         
     # Definiendo las funciones para la ejecucion de las canciones
     def ReproducirCancion(self):
@@ -100,6 +108,16 @@ class ReproductorMusical:
         self.estado.set(">>..")
         # Ejecutando cancion despues de pausada
         pygame.mixer.music.unpause()
+    
+    def directorioInicial(self):
+        # Seleccionando directorio de las canciones
+        os.chdir(self.directorio.get())
+        # Obteniendo cancioness
+        canciones = os.listdir()
+        # Insertando canciones en el playlist
+        for track in canciones:
+            if track.split('.')[-1] in self.aceptados:
+                self.listaCanciones.insert(END,track)    
     
     def seleccionarRuta(self):
         directorio = filedialog.askdirectory()
