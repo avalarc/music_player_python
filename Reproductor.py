@@ -3,7 +3,7 @@ from tkinter import filedialog
 import pygame
 import os
 
-# Defining MusicPlayer Class
+# Definiendo la clase Repriductor Musical
 class ReproductorMusical:
     
     def __init__(self,container):
@@ -120,7 +120,7 @@ class ReproductorMusical:
         
 # Creating TK Container
 container = Tk()
-# Passing container to MusicPlayer Class
+# Passing container to ReproductorMusical Class
 ReproductorMusical(container)
 # container Window Looping
 container.mainloop()
