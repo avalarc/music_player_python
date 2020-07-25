@@ -4,7 +4,7 @@ https://github.com/avalarc/music_player_python
 
 Tutorial simple para la ejecución del reproductor de música.
 
-Instucciones para la ejecución
+Instrucciones para la ejecución
 Clona el proyecto,
 
 $ git clone https://github.com/avalarc/music_player_python.git
