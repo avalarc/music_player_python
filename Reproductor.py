@@ -3,7 +3,7 @@ from tkinter import filedialog
 import pygame
 import os
 
-# Definiendo la clase Repriductor Musical
+# Definiendo la clase Reproductor Musical
 class ReproductorMusical:
     
     def __init__(self,container):
