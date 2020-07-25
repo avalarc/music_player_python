@@ -19,7 +19,7 @@ $ python Reproductor.py
 
 Aqui hay algunos pantallazos
 
-![Image of MusicPlayer](https://drive.google.com/file/d/1vy3CcoGAZJ08jH6J9NofM2tWEw59bFCI/view?usp=sharing)
+![Image of MusicPlayer](https://github.com/avalarc/music_player_python/blob/master/Reproductor%20musica%20python.png)
 
 
 
